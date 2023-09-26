@@ -1,11 +1,13 @@
 function pow(num, degree) {
+  if (typeof num !== "number") {
+    throw new Error("Num must be a valid number!");
+  }
   if (
     typeof degree !== "number" ||
     degree < 0 ||
     Math.floor(degree) !== degree
   ) {
-    alert("Degree must be a non-negative integer");
-    return;
+    throw new Error("Degree must be a non-negative integer");
   } else if (degree === 0) {
     return 1;
   } else {
@@ -13,4 +15,6 @@ function pow(num, degree) {
   }
 }
 
-alert(pow(5, 4));
+console.log(pow(5, 4))
+
+module.exports = pow;
